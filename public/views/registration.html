@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Login Page</title>
+<title>Registration Page</title>
 
 <link rel = "icon"
  href="public/img/logo.png" 
 type = "image/x-icon"> 
 
 <link rel="stylesheet" type = "text/css"
-href="public/css/login.css">
+href="public/css/registration.css">
 
 </head>
 
@@ -20,6 +20,19 @@ href="public/css/login.css">
     <div class="logo-image-container">
             <img src = "public/img/logo.png" alt = "logo" class="center">
     </div> 
+    <div class="name-surname-group">
+        <div class="form-group name-field">
+            <label for="name">Name</label>
+            <input type="text" id="name" required>
+        </div>
+        <div class="form-group surname-field">
+            <label for="surname">Surname</label>
+            <input type="text" id="surname" required>
+    </div>
+    <div class="form-group">
+        <label for="phone">Phone(optional)</label>
+        <input type="phone" id="phone" required>
+    </div>
     <div class="form-group">
         <label for="email">Email address</label>
         <input type="email" id="email" required>
@@ -30,12 +43,9 @@ href="public/css/login.css">
     </div>
     <div class="form-group">
         <input type="checkbox" id="remember">
-        <label for="remember">Remember me</label>
+        <label for="remember">I confirm that I have read and understood the Privacy Policy</label>
     </div>
-    <button type="submit">Log in</button>
-    <div class="login-footer">
-        <a href="#">Forgot my password</a>
-    </div>
+    <button type="submit">Sign up</button>
 </div>
 </body>
 </html>
