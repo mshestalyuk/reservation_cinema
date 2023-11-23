@@ -16,23 +16,32 @@ href="public/css/login.css">
 
 <body>
 
- <div class="login-container">
+ <div class="login-container" action="login" method = "POST">
     <div class="logo-image-container">
             <img src = "public/img/logo.png" alt = "logo" class="center">
     </div> 
+    <form class="login" action="login" method = "POST">
     <div class="form-group">
         <label for="email">Email address</label>
-        <input type="email" id="email" required>
+        <input name="email" type="email" id="email" required>
     </div>
     <div class="form-group">
         <label for="password">Password</label>
-        <input type="password" id="password" required>
+        <input name="password" type="password" id="password" required>
     </div>
-    <div class="form-group">
-        <input type="checkbox" id="remember">
-        <label for="remember">Remember me</label>
+    <div class="messages">
+        <?php
+        if(isset($messages))
+        {
+            foreach($messages as $message)
+            {
+                echo "<span>{$message}</span>";
+            }
+        }
+        ?>
     </div>
     <button type="submit">Log in</button>
+    </form>
     <div class="login-footer">
         <a href="#">Forgot my password</a>
     </div>

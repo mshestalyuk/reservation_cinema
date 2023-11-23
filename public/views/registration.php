@@ -30,10 +30,6 @@ href="public/css/registration.css">
             <input type="text" id="surname" required>
     </div>
     <div class="form-group">
-        <label for="phone">Phone(optional)</label>
-        <input type="phone" id="phone" required>
-    </div>
-    <div class="form-group">
         <label for="email">Email address</label>
         <input type="email" id="email" required>
     </div>
