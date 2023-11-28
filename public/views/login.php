@@ -43,7 +43,7 @@ href="public/css/login.css">
     <button type="submit">Log in</button>
     </form>
     <div class="login-footer">
-        <a href="#">Forgot my password</a>
+        <p>Dont have an account? <a href="registration">Sign up</a></p>
     </div>
 </div>
 </body>
