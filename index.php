@@ -6,6 +6,8 @@ Routing::get('', 'DefaultController');
 Routing::get('login', 'DefaultController');
 
 Routing::get('registration', 'DefaultController');
+Routing::get('profile_details', 'DefaultController');
+
 Routing::post('login', 'SecurityController');
 
 Routing::run($path);

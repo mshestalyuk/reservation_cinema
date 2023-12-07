@@ -17,4 +17,11 @@ class DefaultController extends AppController {
         $this->render("registration");
 
     }
+
+    public function profile_details(){
+
+        // TODO display profile_details
+        $this->render("profile_details");
+
+    }
 }
