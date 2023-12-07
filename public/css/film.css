@@ -1,0 +1,276 @@
+body {
+    margin: 0;
+    background: #FFA959;       
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 400;
+}
+
+/* Menubar */
+.container_menubar{
+    width: 80%;
+    margin: auto;
+    margin-bottom: 10px;
+    height: 50px;
+
+}
+
+header{
+    background: #262729;
+
+}
+header::after{
+    content: '';
+    display: table;
+    clear: both;
+}
+nav{
+    float: right;
+}
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+nav li{
+    display: inline-block;
+    margin-left: 75px;
+    padding-top: 25px;
+    position: relative;
+}
+nav a {
+    color: #3CB3CD;;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 15px;
+}
+nav a:hover{
+    color: #3CB3CD;;
+}
+nav a::before{
+    content: '';
+    display: block;
+    height: 5px;
+    width: 100%;
+    background-color: #3CB3CD;;
+    position: absolute;
+    top:0%;
+    width: 0%;
+
+    transition: all ease-in-out 250ms;
+}
+nav a:hover::before{
+    width: 100%;
+}
+/* Menubar */
+
+/* Footer */
+.container-footer {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    max-width: 80%;
+    margin: 0 auto; 
+}
+.logo{
+    padding-right: 10px;
+    height: 170px;
+}
+.row{
+	display: flex;
+	flex-wrap: wrap;
+}
+ul{
+	list-style: none;
+}
+.footer {
+    background-color: #262729;
+    color: #ffffff;
+    padding: 20px 0;
+}
+.footer-col {
+    margin-right: 20px;
+}
+.footer-col h4{
+	font-size: 18px;
+	color: #ffffff;
+	text-transform: capitalize;
+	font-weight: 700;
+	position: relative;
+}
+.footer-col h4::before{
+	content: '';
+	position: absolute;
+	left:0;
+	bottom: -10px;
+	background-color: #e91e63;
+	height: 2px;
+	box-sizing: border-box;
+	width: 50px;
+}
+.footer-col ul li:not(:last-child){
+	margin-bottom: 10px;
+}
+.footer-col ul li a{
+	font-size: 16px;
+	text-transform: capitalize;
+	color: #ffffff;
+	text-decoration: none;
+	font-weight: 300;
+	color: #bbbbbb;
+	display: block;
+	transition: all 0.3s ease;
+}
+.footer-col ul li a:hover{
+	color: #ffffff;
+	padding-left: 8px;
+}
+.footer-col.socials {
+    display: flex;
+    align-items: center;
+}
+.footer-col .social-links a{
+	display: inline-block;
+	height: 40px;
+	width: 40px;
+	background-color: rgba(255,255,255,0.2);
+	margin:0 10px 10px 0;
+	text-align: center;
+	line-height: 40px;
+	border-radius: 50%;
+	color: #ffffff;
+	transition: all 0.5s ease;
+}
+.footer-col .social-links a:hover{
+	color: #24262b;
+	background-color: #ffffff;
+}
+
+/* Footer Reservation Panel */
+.reservation-panel {
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+
+.reservation-panel form {
+    display: flex;
+    flex-direction: column;
+}
+
+.select-box {
+    margin-bottom: 10px;
+}
+.select-box select {
+    width: 100%; 
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid #ddd;
+    appearance: none;
+}
+
+.btn-reserve {
+    padding: 10px 25px;
+    border: none;
+    border-radius: 20px;
+    background-color: #3CB3CD;
+    color: white;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 16px; 
+    font-weight: bold; 
+    flex: 0 1 auto; 
+}
+/* FOOTER */
+
+
+/* Film Container */
+.container_films {
+    display: grid; /* Use grid for better control */
+    grid-template-columns: 2fr 1fr; /* Two columns with a 2:1 ratio */
+    gap: 2rem; /* Space between columns */
+    background: #0f0f0f; /* Very dark background */
+    color: #fff; /* White text for readability */
+    border-radius: 10px;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.7); /* Deeper shadow for a pop-out effect */
+    padding: 2rem; /* Outer padding */
+    align-items: start; /* Align to the start of the container */
+    margin: 2% auto;
+    width: 80%; /* Responsive width */
+    max-width: 1280px; /* Maximum width */
+}
+
+.movie-content {
+    padding-right: 20px; /* Spacing between content and poster */
+}
+
+.movie-title {
+    font-size: 2.5rem;
+    color: #ffa726; /* Highlight color for the movie title */
+    margin-bottom: 1rem; /* Space below the title */
+}
+
+.movie-details {
+    font-size: 1rem;
+    line-height: 1.5;
+    border-left: 4px solid #ffa726; /* Highlight line for the details */
+    padding-left: 20px; /* Inner spacing for details */
+}
+
+.movie-details p {
+    margin-bottom: 10px; /* Space between details */
+}
+
+.movie-details strong {
+    color: #ffa726; /* Use the accent color for labels */
+}
+
+.movie-synopsis {
+    margin-top: 20px; /* Space above the synopsis */
+    font-size: 1.1rem; /* Slightly larger font for the synopsis */
+    color: #ccc; /* Lighter color for readability */
+}
+
+.movie-poster img {
+    width: 100%; /* Full width of the column */
+    max-width: 400px; /* Maximum width */
+    border-radius: 10px; /* Rounded corners for the poster */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Shadow for depth */
+}
+
+.btn-book {
+    display: block; /* Make the button a block element to fill the container */
+    width: 200px; /* Set a fixed width for the button */
+    background-color: #ffa726; /* Use the highlight color for the button */
+    color: #0f0f0f; /* Dark text for the button */
+    text-align: center; /* Center the text inside the button */
+    padding: 12px 20px; /* Padding for the button */
+    font-size: 1rem; /* Font size for the button text */
+    font-weight: bold; /* Make the button text bold */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Slightly rounded corners for the button */
+    cursor: pointer; /* Change mouse cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+    margin-top: 20px; /* Add some space above the button */
+    text-transform: uppercase; /* Uppercase button text */
+}
+
+.btn-book:hover, .btn-book:focus {
+    background-color: #e68a00; /* Darker color on hover/focus */
+    color: white; /* Change text color on hover/focus */
+    outline: none; /* Remove outline on focus */
+}
+
+/* Additional adjustments for alignment */
+.movie-content {
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    justify-content: space-between; /* Distribute space between elements */
+}
+
+.movie-poster {
+    margin-left: 2rem; /* Add margin to separate from content */
+}

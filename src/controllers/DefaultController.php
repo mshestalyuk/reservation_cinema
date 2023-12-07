@@ -24,4 +24,11 @@ class DefaultController extends AppController {
         $this->render("profile_details");
 
     }
+
+    public function film(){
+
+        // TODO display profile_details
+        $this->render("film");
+
+    }
 }
