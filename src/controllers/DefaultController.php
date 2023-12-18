@@ -31,4 +31,11 @@ class DefaultController extends AppController {
         $this->render("film");
 
     }
+
+    public function add_film(){
+
+        // TODO display registration
+        $this->render("add_film");
+
+    }
 }
