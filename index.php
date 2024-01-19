@@ -7,6 +7,8 @@ Routing::get('login', 'DefaultController');
 Routing::get('registration', 'DefaultController');
 Routing::get('profile_details', 'DefaultController');
 Routing::get('film', 'DefaultController');
+Routing::get('films', 'FilmController');
+
 Routing::get('add_film', 'DefaultController');
 
 Routing::post('login', 'SecurityController');

@@ -17,6 +17,14 @@ class FilmController extends AppController {
         parent::__construct();
         $this->filmRepository = new FilmRepository();
     }
+
+    public function films(){
+
+        $films = $this->filmRepository->getFilms();
+        $this->render(  'films', ['films' => $films]);
+
+    }
+
     public function addFilm()
     {
         move_uploaded_file(
@@ -26,16 +34,16 @@ class FilmController extends AppController {
         if($this->isPost() && is_uploaded_file($_FILES['file']['tmp_name']) && $this->validate($_FILES['file']))
         {
             $film = new Film(
-                $_POST['filmName'],
-                $_POST['filmGenre'],
-                $_POST['releaseDate'],
+                $_POST['name'],
+                $_POST['genre'],
+                $_POST['release'],
                 $_POST['cast'],
                 $_POST['director'],
                 $_POST['certificate'],
                 $_FILES['file']['name']
             );
             $this->filmRepository->addFilm($film);
-            return $this->render('home', ['messages' => $this->messages]);
+            return $this->render('films', ['messages' => $this->messages]);
         }
         return $this->render('add-film', ['messages' => $this->messages]);
      }

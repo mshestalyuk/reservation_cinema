@@ -32,6 +32,8 @@ class DefaultController extends AppController {
 
     }
 
+
+
     public function add_film(){
 
         // TODO display registration

@@ -57,6 +57,29 @@ class FilmRepository extends Repository
             $this->messages[] = 'Error adding film: ' . $e->getMessage();
         }
     }
+    public function getFilms(): array
+    {
+        $result = [];
 
+        $stmt = $this->database->connect()->prepare('
+            SELECT * FROM public.movie;
+        ');
+        $stmt->execute();
+        $films = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($films as $film) {
+            $result[] = new Film(
+                $film['name'],
+                $film['genre'],
+                $film['release'],
+                $film['cast'],
+                $film['director'],
+                $film['certificate'],
+                $film['image']
+            );
+        }
+
+        return $result;
+    }
 
 }
