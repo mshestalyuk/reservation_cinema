@@ -19,29 +19,39 @@ href="public/css/registration.css">
  <div class="login-container">
     <div class="logo-image-container">
             <img src = "public/img/logo.png" alt = "logo" class="center">
-    </div> 
-    <div class="name-surname-group">
+    </div>
+     <form action="registration" method="POST">
+         <?php
+         if(isset($messages)){
+             foreach($messages as $message) {
+                 echo $message;
+             }
+         }
+         ?>
+     <div class="name-surname-group">
         <div class="form-group name-field">
             <label for="name">Name</label>
-            <input type="text" id="name" required>
+            <input type="text" id="name" name="name" required>
         </div>
         <div class="form-group surname-field">
             <label for="surname">Surname</label>
-            <input type="text" id="surname" required>
+            <input type="text" id="surname" name="surname" required>
     </div>
     <div class="form-group">
         <label for="email">Email address</label>
-        <input type="email" id="email" required>
+        <input type="email" name="email" id="email" required>
     </div>
     <div class="form-group">
         <label for="password">Password</label>
-        <input type="password" id="password" required>
+        <input type="password" name="password" id="password" required>
     </div>
     <div class="form-group">
         <input type="checkbox" id="remember">
         <label for="remember">I confirm that I have read and understood the Privacy Policy</label>
     </div>
     <button type="submit">Sign up</button>
+     </form>
 </div>
+
 </body>
 </html>

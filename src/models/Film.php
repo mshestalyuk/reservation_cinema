@@ -2,24 +2,20 @@
 class Film {
     private $filmName;
     private $releaseDate;
-    private $runningTime;
-    private $originalTitle;
     private $filmGenre;
     private $cast;
     private $director;
-    private $ageRestrictions;
+    private $certificate;
     private $image;
 
-    public function __construct($filmName, $releaseDate, $runningTime, $originalTitle, $filmGenre, $cast, $director, $ageRestrictions, $image)
+    public function __construct($filmName, $releaseDate, $filmGenre, $cast, $director, $certificate, $image)
     {
         $this->filmName = $filmName;
         $this->releaseDate = $releaseDate;
-        $this->runningTime = $runningTime;
-        $this->originalTitle = $originalTitle;
         $this->filmGenre = $filmGenre;
         $this->cast = $cast;
         $this->director = $director;
-        $this->ageRestrictions = $ageRestrictions;
+        $this->certificate = $certificate;
         $this->image = $image;
     }
 
@@ -38,22 +34,6 @@ class Film {
 
     public function setReleaseDate($releaseDate) {
         $this->releaseDate = $releaseDate;
-    }
-
-    public function getRunningTime() {
-        return $this->runningTime;
-    }
-
-    public function setRunningTime($runningTime) {
-        $this->runningTime = $runningTime;
-    }
-
-    public function getOriginalTitle() {
-        return $this->originalTitle;
-    }
-
-    public function setOriginalTitle($originalTitle) {
-        $this->originalTitle = $originalTitle;
     }
 
     public function getFilmGenre() {
@@ -80,12 +60,12 @@ class Film {
         $this->director = $director;
     }
 
-    public function getAgeRestrictions() {
-        return $this->ageRestrictions;
+    public function getCertificate() {
+        return $this->certificate;
     }
 
-    public function setAgeRestrictions($ageRestrictions) {
-        $this->ageRestrictions = $ageRestrictions;
+    public function setCertificate($certificate) {
+        $this->certificate = $certificate;
     }
 
     public function getImage() {

@@ -3,8 +3,9 @@
 require_once 'Repository.php';
 require_once __DIR__.'/../models/Film.php';
 
-class ProjectRepository extends Repository
+class FilmRepository extends Repository
 {
+    private $messages = [];
 
     public function getFilm(int $id): ?Film
     {
@@ -23,8 +24,6 @@ class ProjectRepository extends Repository
         return new Film(
             $film['filmName'],
             $film['releaseDate'],
-            $film['runningTime'],
-            $film['originalTitle'],
             $film['filmGenre'],
             $film['cast'],
             $film['director'],
@@ -36,24 +35,28 @@ class ProjectRepository extends Repository
 
     public function addFilm(Film $film): void
     {
-        $date = new DateTime();
-        $stmt = $this->database->connect()->prepare('
-            INSERT INTO movie (name, genre, release, cast, director, certificate, image)
+        try {
+            $stmt = $this->database->connect()->prepare('
+            INSERT INTO public.movie (name, genre, release, cast, director, certificate, image)
             VALUES (?, ?, ?, ?, ?, ?, ?)
         ');
 
-
-        $stmt->execute([
-            $film->getFilmName(),
-            $film->getFilmGenre(),
-            $film->getReleaseDate(),
-            $film->getCast(),
-            $film->getDirector(),
-            $film->getRunningTime(),
-            $film->getImage(),
-
-
-
-        ]);
+            $stmt->execute([
+                $film->getFilmName(),
+                $film->getFilmGenre(),
+                $film->getReleaseDate(),
+                $film->getCast(),
+                $film->getDirector(),
+                $film->getCertificate(),
+                $film->getImage(),
+            ]);
+        } catch (PDOException $e) {
+            // This will print the exception details to the PHP error log.
+            error_log('PDO Exception: ' . $e->getMessage());
+            // You can also store the error in a class variable or display it to the user if necessary.
+            $this->messages[] = 'Error adding film: ' . $e->getMessage();
+        }
     }
+
+
 }

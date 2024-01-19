@@ -11,5 +11,6 @@ Routing::get('add_film', 'DefaultController');
 
 Routing::post('login', 'SecurityController');
 Routing::post('addFilm', 'FilmController');
+Routing::post('registration', 'SecurityController');
 
 Routing::run($path);
