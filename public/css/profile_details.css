@@ -355,3 +355,23 @@ ul{
 .active-tab:hover, .active-tab:focus {
     background-color: transparent;
 }
+.admin-actions {
+    display: flex;
+    justify-content: center; /* Center buttons in the div */
+    margin-top: 20px; /* Add some space from the top content */
+}
+
+.admin-actions button {
+    background-color: #3CB3CD; /* Set the background color */
+    color: white; /* Set the text color */
+    border: none; /* Remove the border */
+    border-radius: 5px; /* Round the corners */
+    padding: 10px 20px; /* Add padding inside the buttons */
+    margin: 0 10px; /* Add space between the buttons */
+    cursor: pointer; /* Change mouse pointer on hover */
+    font-size: 16px; /* Set the font size */
+}
+
+.admin-actions button:hover {
+    background-color: #2a8ca8; /* Change background on hover */
+}

@@ -357,3 +357,91 @@ main {
         width: 100%;
     }
 }
+
+/* Search Bar */
+.search-container {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-container input[type="text"] {
+    padding: 10px;
+    font-size: 17px;
+    border: none;
+    float: left;
+    width: 80%;
+    background: #f1f1f1;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    color: #333;
+}
+
+.search-container button {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    background: #3CB3CD;
+    color: white;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+    border-radius: 0 5px 5px 0;
+    outline: none;
+}
+
+.search-container button:hover {
+    background: #2aa2af;
+}
+
+@media (max-width: 768px) {
+    .search-container input[type="text"] {
+        width: 70%;
+    }
+
+    .search-container button {
+        width: 30%;
+    }
+}
+
+/* Film Cards */
+.film-item {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px; /* Rounded borders */
+    color: #333; /* Dark text */
+}
+
+.film-item:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+/* Film Info */
+.film-info {
+    padding: 2px 16px;
+    background-color: #333;
+    color: #fff;
+}
+
+/* See More Button */
+.see-more-btn button {
+    background-color: #f1c40f; /* Yellow background */
+    color: #333; /* Dark text */
+}
+
+.see-more-btn button:hover {
+    background-color: #d4ac0d; /* Darker yellow */
+}
+
+/* Adjustments to existing styles */
+main {
+    padding: 20px;
+    border-radius: 8px; /* Rounded corners */
+}
+
+.films-list h2 {
+    color: #333; /* Dark text for readability */
+}
+
+/* ...rest of your styles... */

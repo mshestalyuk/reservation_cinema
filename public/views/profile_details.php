@@ -14,9 +14,19 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css
 
 <link rel="stylesheet" type = "text/css"
 href="public/css/profile_details.css">
+    <script type="text/javascript" src="public/js/logout.js" defer></script>
 
 </head>
 <body>
+    <?php
+       session_start();
+
+        if (!isset($_SESSION['user']) && !isset($_SESSION['admin'])) {
+        // If there is no 'user' in the session, redirect to login page
+            $this->render('login');
+        exit();
+        }
+    ?>
     <!-- Header -->
     <header>
     <div class ="container_menubar">
@@ -25,7 +35,7 @@ href="public/css/profile_details.css">
             <ul>    
                 <li><a href="/">Home</a></li>
                 <li><a href="#">Profile</a></li>
-                <li><a href="#">Log out</a></li>
+                <li><a href="#" id="logoutButton">Log out</a></li>
                 <li><a href="#">EN</a></li>
             </ul>
         </nav>
@@ -36,8 +46,8 @@ href="public/css/profile_details.css">
 
 <div class="profile-container">
     <div class="profile-header">
-        <h1>Hello, $username</h1>
-        <p>Account type: $account_type</p>
+        <h1>Hello, <?php echo $_SESSION['user']['name'];?></h1>
+        <p>Account type: <?php echo $_SESSION['user']['role'];?></p>
     </div>
     <div class="profile-tabs">
         <a href="/my-tickets"><span>My tickets</span></a> | <a href="/profile_details" class="active-tab"><span>Personal details</span></a> |  <a href="/account"><span>Account</span></a>
@@ -82,6 +92,15 @@ href="public/css/profile_details.css">
             <button type="submit" class="btn-save">Save</button>
         </form>
     </div>
+
+    <?php if (isset( $_SESSION['user']['role'])): ?>
+        <div class="admin-actions">
+            <button onclick="location.href='/admin_page';">Manage Users</button>
+            <button onclick="location.href='/add_film';">Add New Films</button>
+        </div>
+    <?php endif; ?>
+
+
 </div>
 
 

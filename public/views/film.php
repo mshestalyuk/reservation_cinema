@@ -17,15 +17,21 @@ href="public/css/film.css">
 
 </head>
 <body>
-
+<?php
+session_start();
+?>
     <header>
     <div class ="container_menubar">
 
         <nav>
-            <ul>    
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Profile</a></li>
-                <li><a href="/">Log out</a></li>
+            <ul>
+                <li><a href="home">Home</a></li>
+                <li><a href="profile_details">Profile</a></li>
+                <?php if (isset($_SESSION['user']) || isset($_SESSION['admin'])): ?>
+                    <li><a href="/logout" id="logoutButton">Log out</a></li>
+                <?php else: ?>
+                    <li><a href="/login">Log in</a></li>
+                <?php endif; ?>
                 <li><a href="#">EN</a></li>
             </ul>
         </nav>

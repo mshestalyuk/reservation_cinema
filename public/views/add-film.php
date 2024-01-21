@@ -18,15 +18,39 @@
     <script src="https://kit.fontawesome.com/723297a893.js" crossorigin="anonymous"></script>
 </head>
 <body>
+<?php
+session_start();
+
+if (!isset($_SESSION['user']['role'])) {
+    // Assuming that you set a 'role' in $_SESSION['user'] when logging in
+    // And assuming 'admin' is the role you're checking for
+    if (isset($_SESSION['user']) && $_SESSION['user']['role'] !== 'admin') {
+        // Set a session message that can be displayed on the login page
+        $_SESSION['message'] = "You do not have enough rights to access the admin panel.";
+
+        // Redirect to the login page
+        header('Location: /home');
+        exit();
+    } else {
+        // If no user is logged in at all, just redirect to login without setting a message
+        header('Location: /login');
+        exit();
+    }
+}
+?>
 
     <header>
     <div class ="container_menubar">
 
         <nav>
-            <ul>    
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Profile</a></li>
-                <li><a href="/">Log out</a></li>
+            <ul>
+                <li><a href="home">Home</a></li>
+                <li><a href="profile_details">Profile</a></li>
+                <?php if (isset($_SESSION['user']) || isset($_SESSION['admin'])): ?>
+                    <li><a href="/logout" id="logoutButton">Log out</a></li>
+                <?php else: ?>
+                    <li><a href="/login">Log in</a></li>
+                <?php endif; ?>
                 <li><a href="#">EN</a></li>
             </ul>
         </nav>
@@ -69,9 +93,9 @@
                 }
             }
             ?>
-            <input type="text" name="filmName" placeholder="Film Name">
-            <input type="text" name="releaseDate" placeholder="Release Date">
-            <input type="text" name="filmGenre" placeholder="Film Genre">
+            <input type="text" name="name" placeholder="Film Name">
+            <input type="text" name="release" placeholder="Release Date">
+            <input type="text" name="genre" placeholder="Film Genre">
             <input type="text" name="cast" placeholder="Cast">
             <input type="text" name="director" placeholder="Director">
             <input type="text" name="certificate" placeholder="Age Restrictions">

@@ -5,6 +5,10 @@ class DefaultController extends AppController {
         // TODO display home
         $this->render("home");
     }
+    public function home(){
+        // TODO display home
+        $this->render("home");
+    }
 
     public function login(){
         // TODO display login
@@ -40,4 +44,6 @@ class DefaultController extends AppController {
         $this->render("add-film");
 
     }
+
+
 }

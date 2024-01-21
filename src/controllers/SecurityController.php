@@ -14,6 +14,13 @@ class SecurityController extends AppController {
         $this->userRepository = new UserRepository();
     }
 
+    public function admin_page(){
+
+        $films = $this->userRepository->getUsers();
+        $this->render("admin-page");
+
+    }
+
     public function login()
     {
         if (!$this->isPost()) {
@@ -37,9 +44,26 @@ class SecurityController extends AppController {
             return $this->render('login', ['messages' => ['Wrong password!']]);
         }
 
+        session_start();
+        $_SESSION['user'] = [
+            'id' => $user->getId(),
+            'email' => $user->getEmail(),
+            'name' => $user->getName(),
+            'surname' => $user->getSurname(),
+            'role' => $user->getRole()
+        ];
         $url = "http://$_SERVER[HTTP_HOST]";
         header("Location: {$url}/");
     }
+    public function logout(){
+        session_start();
+        unset($_SESSION['user']);
+        unset($_SESSION['admin']);
+        session_destroy();
+        return $this->render('login', ['messages' => ['You\'ve been successfully logged out!']]);
+    }
+
+
 
     public function registration()
     {

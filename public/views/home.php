@@ -7,7 +7,7 @@
 
 <link rel = "icon"
  href="public/img/logo.png" 
-type = "image/x-icon"> 
+type = "image/x-icon">
 
 <link rel="stylesheet" type="text/css" 
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
@@ -18,38 +18,46 @@ href="public/css/home.css">
 
 </head>
 <body>
-
+    <?php
+        session_start();
+    ?>
     <header>
     <div class ="container_menubar">
 
         <nav>
             <ul>    
                 <li><a href="#">Home</a></li>
-                <li><a href="#">Profile</a></li>
-                <li><a href="login">Log in</a></li>
+                <li><a href="profile_details">Profile</a></li>
+                <?php if (isset($_SESSION['user']) || isset($_SESSION['admin'])): ?>
+                    <li><a href="/logout" id="logoutButton">Log out</a></li>
+                <?php else: ?>
+                    <li><a href="/login">Log in</a></li>
+                <?php endif; ?>
+
+
                 <li><a href="#">EN</a></li>
             </ul>
         </nav>
     </div>
     </header>
   <div class="container_films">
-  <a href="#" class="arrow left-arrow">&lt;</a>
+  <a href="films" class="arrow left-arrow">&lt;</a>
 
   <div class="movie">
     <img src="public/img/batman2.jpg" alt="batman2">
-    <a href="#" class="button">More</a>
+    <a href="films" class="button">More</a>
   </div>
   <div class="movie">
     <img src="public/img/batman.png" alt="batman">
-    <a href="#" class="button">More</a>
+    <a href="films" class="button">More</a>
   </div>
   <div class="movie">
     <img src="public/img/uncharted.jpg" alt="Uncharted">
-    <a href="#" class="button">More</a>
+    <a href="films" class="button">More</a>
   </div>
   <div class="movie">
     <img src="public/img/freedom.jpg" alt="Freedom">
-    <a href="#" class="button">More</a>
+    <a href="films" class="button">More</a>
   </div>
   <div class="movie">
     <img src="public/img/avangers.jpeg" alt="Avangers">

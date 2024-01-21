@@ -14,19 +14,25 @@
 
     <link rel="stylesheet" type = "text/css"
           href="public/css/films.css">
-    <script src="https://kit.fontawesome.com/723297a893.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="public/js/search.js" defer></script>
 
 </head>
 <body>
-
+<?php
+session_start();
+?>
 <header>
     <div class ="container_menubar">
 
         <nav>
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Profile</a></li>
-                <li><a href="login">Log in</a></li>
+                <li><a href="home">Home</a></li>
+                <li><a href="profile_details">Profile</a></li>
+                <?php if (isset($_SESSION['user']) || isset($_SESSION['admin'])): ?>
+                    <li><a href="/logout" id="logoutButton">Log out</a></li>
+                <?php else: ?>
+                    <li><a href="/login">Log in</a></li>
+                <?php endif; ?>
                 <li><a href="#">EN</a></li>
             </ul>
         </nav>
@@ -35,11 +41,16 @@
 
 <main>
     <section class="films-list">
+        <div class="search-container">
+            <input type="text" placeholder="Search films..." name="search">
+            <button type="submit"><i class="fa fa-search"></i></button>
+        </div>
+
         <h2>Now Showing</h2>
         <ul class="film-items">
             <?php foreach ($films as $film): ?>
             <li class="film-item">
-                <img src="public/img/<?= $film->getImage(); ?>" alt="Error">
+                <a href="film"><img src="public/img/<?= $film->getImage(); ?>" alt="Error"></a>
                 <div class="film-info">
                     <h3><?= $film->getFilmName(); ?></h3>
                     <p>Director: <?= $film->getDirector(); ?></p>
@@ -51,9 +62,6 @@
         </ul>
 
     </section>
-    <div class="see-more-btn">
-        <button>See More</button>
-    </div>
 </main>
 
 
@@ -117,4 +125,19 @@
 </footer>
 
 </body>
+
+
+<template id="film-template">
+    <ul class="film-items">
+    <li class="film-item">
+        <img src="" alt="Film Image">
+        <div class="film-info">
+            <h3></h3>
+            <p></p> <!-- Director will go here -->
+            <p></p> <!-- Cast will go here -->
+        </div>
+    </li>
+    </ul>
+
+</template>
 </html>

@@ -22,10 +22,13 @@ class UserRepository extends Repository
         }
 
         return new User(
+
             $user['email'],
             $user['password'],
             $user['name'],
-            $user['surname']
+            $user['surname'],
+            $user['id'],
+            $user['role']
         );
     }
 
@@ -53,6 +56,29 @@ class UserRepository extends Repository
         ]);
     }
 
+    public function getUsers(): array
+    {
+        $result = [];
+
+        $stmt = $this->database->connect()->prepare('
+            SELECT * FROM public.customer;
+        ');
+        $stmt->execute();
+        $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($users as $user) {
+            $result[] = new User(
+                $user['email'],
+                $user['password'],
+                $user['name'],
+                $user['surname'],
+                $user['id'],
+                $user['role'],
+            );
+        }
+
+        return $result;
+    }
     public function getUserDetailsId(User $user): int
     {
         $stmt = $this->database->connect()->prepare('

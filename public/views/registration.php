@@ -11,6 +11,7 @@ type = "image/x-icon">
 
 <link rel="stylesheet" type = "text/css"
 href="public/css/registration.css">
+    <script type="text/javascript" src="./public/js/script.js" defer></script>
 
 </head>
 
