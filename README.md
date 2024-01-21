@@ -1,24 +1,64 @@
-# Movie Ticket Reservation System
+# Reservation Cinema
 
 ## Overview
+Reservation Cinema is an intuitive web application that caters to movie buffs by offering a streamlined way to view showtimes, book tickets, and enjoy a cinematic experience. Designed with simplicity and efficiency in mind, users can easily navigate through current movie listings, manage reservations, and stay updated with the latest screenings.
 
-The Movie Ticket Reservation System is a web-based application that allows users to reserve movie tickets based on their movie preferences. It offers a convenient way for moviegoers to browse movies, view showtimes, and make reservations tailored to their interests.
+## Table of Contents
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+- [Features](#features)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
+
+## Getting Started
+Follow these instructions to set up a local development instance of the application.
+
+### Prerequisites
+- Docker
+- PostgreSQL DB
+
+### Installation
+1. Clone the repository:
+```
+git clone https://github.com/mshestalyuk/reservation_cinema.git
+```
+
+3. Navigate to the project's root directory:
+```
+cd reservation_cinema
+```
+
+4. Use Docker to build and run the application:
+```
+docker-compose build
+docker-compose up
+```
+
+5. After the containers are up and running, open your web browser and access:
+```
+http://localhost:8080/
+```
 
 ## Features
+- **Browse Movies**: Discover films currently showing and upcoming releases.
+- **Movie Details**: Get insights into synopsis, cast, and screening times.
+- **Ticket Reservation**: Book your tickets securely and manage your reservations.
+- **User Profiles**: Personalize your experience by managing your profile and booking history.
+- **Admin Dashboard**: For cinema staff to update movie listings and schedules.
 
-- User Registration: Users can create accounts and log in.
-- Movie Catalog: Browse and search for movies.
-- Movie Details: View movie details, including synopsis, cast, and trailer.
-- Showtimes: Check available showtimes for selected movies.
-- Preferences: Set and update movie preferences to receive personalized recommendations.
-- Reservation: Reserve movie tickets for selected showtimes.
-- Payment Integration: Process payments for reservations securely.
-- User Profile: Manage user profiles and preferences.
+## Usage
+With the application running, users can create an account to start booking tickets. The admin dashboard allows for the addition and management of movie details, schedules, and user reservations.
 
-## Technologies Used
+## Contributing
+Contributions are welcome! For major changes, please open an issue first to discuss what you would like to change.
 
-- **Backend**: PHP with a PostgreSQL database.
-- **Frontend**: HTML, CSS, JavaScript.
-- **Containerization**: Docker for environment setup.
-- **Payment Processing**: Integration with a payment gateway.
-- **Recommendation Engine**: Implement a recommendation algorithm.
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Contact
+If you have any questions or suggestions, please contact the project maintainers.
+
+
